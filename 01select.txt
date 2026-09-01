@@ -1,1 +1,110 @@
+1.
+SELECT customerName,city
+FROM customers
+WHERE country = 'France';
 
+2.
+SELECT customerName
+FROM customers
+WHERE creditLimit > 50000;
+
+3.
+SELECT customerName
+FROM customers
+WHERE country = "USA"
+AND creditLimit > 100000;
+
+4.
+SELECT customerName
+FROM customers
+WHERE country = "Germany"
+OR country = "Spain";
+
+5.
+SELECT customerName
+FROM customers
+WHERE city != "Paris";
+
+6.
+SELECT customerName
+FROM customers
+WHERE creditLimit > 20000
+AND creditLimit < 60000;
+
+7
+SELECT customerName
+FROM customers
+WHERE country = "France"
+OR country = "Italiy"
+OR country = "Spain";
+
+8
+SELECT *
+FROM customers
+WHERE customerName LIKE "A%";
+
+9
+SELECT *
+FROM customers
+WHERE customerName LIKE "%Mini%";
+
+10
+SELECT *
+FROM customers
+WHERE salesRepEmployeeNumber IS NULL;
+
+11
+SELECT firstName,lastName,jobTitle
+FROM employees
+WHERE jobTitle = "Sales Rep"
+
+12
+SELECT *
+FROM employees
+WHERE officeCode = 1
+OR officeCode = 4
+
+13
+SELECT *
+FROM employees
+WHERE lastName LIKE "P%"
+
+14
+SELECT *
+FROM products
+WHERE productLine = "Classic Cars";
+
+15
+SELECT *
+FROM products
+WHERE buyPrice > 50;
+
+16
+SELECT *
+FROM products
+WHERE buyPrice < 100
+AND quantityInStock > 1000
+
+17
+SELECT *
+FROM products
+WHERE productLine = "Trucks and Buses"
+OR productLine = "Motorcycles"
+
+18
+SELECT *
+FROM products
+WHERE productScale != '1:18';
+
+19
+SELECT *
+FROM orders
+WHERE status = "Shipped"
+AND orderNumber > 10300
+
+20
+SELECT *
+FROM payments
+WHERE customerNumber = 103
+AND amount > 10000
+AND amount < 50000
