@@ -1,0 +1,107 @@
+1
+SELECT COUNT(*)
+FROM customers
+GROUP BY (country);
+
+2
+SELECT AVG (creditLimit)
+FROM customers
+GROUP BY (country);
+
+3
+SELECT country, MAX(creditLimit)
+FROM customers
+GROUP BY (country);
+
+4
+SELECT city, MIN(creditLimit)
+FROM customers
+GROUP BY (city)
+
+5
+SELECT country, COUNT(*)
+FROM customers
+WHERE creditLimit > 50000
+GROUP BY (country)
+
+6
+SELECT country, AVG (creditLimit)
+FROM customers
+WHERE country = "Germany"
+OR country = "France"
+GROUP BY (country)
+
+7
+SELECT officeCode, COUNT(*)
+FROM employees
+GROUP BY (officeCode)
+
+8
+SELECT jobTitle, COUNT(*)
+FROM employees
+GROUP BY (jobTitle)
+
+9
+SELECT officeCode, COUNT(*)
+FROM employees
+WHERE jobTitle = "Sales Rep"
+GROUP BY officeCode
+
+10
+SELECT productLine, COUNT(*)
+FROM products
+GROUP BY (productLine)
+
+11
+SELECT productLine, AVG (buyPrice)
+FROM products
+GROUP BY (productLine)
+
+12
+SELECT productLine, MIN(buyPrice)
+FROM products
+GROUP BY(productLine);
+
+13
+SELECT productLine, MAX(MSRP)
+FROM products
+GROUP BY (productLine)
+
+14
+SELECT productLine, SUM(quantityInStock)
+FROM products
+GROUP BY (productLine)
+
+15
+SELECT productLine, AVG(buyPrice)
+FROM products
+WHERE buyPrice > 50 AND quantityInStock > 1000
+GROUP BY productLine
+
+16
+SELECT status, COUNT(*) 
+FROM orders
+GROUP BY status;
+
+17
+SELECT customerNumber, COUNT(*)
+FROM orders
+GROUP BY customerNumber 
+
+18
+SELECT customerNumber, SUM(amount)
+FROM payments
+GROUP BY customerNumber
+
+19
+SELECT customerNumber, AVG(amount)
+FROM payments
+WHERE amount > 10000
+GROUP BY customerNumber
+
+20
+SELECT productCode, SUM(quantityOrdered)
+FROM orderdetails
+WHERE quantityOrdered > 20
+AND priceEach > 50
+GROUP BY productCode;
