@@ -1,0 +1,117 @@
+1
+SELECT *
+FROM customers
+WHERE country = "France"
+AND creditLimit > 50000
+
+2
+SELECT *
+FROM customers
+WHERE country IN ("Canada","USA")
+
+3
+SELECT *
+FROM customers
+WHERE country = "Germany"
+AND city != "Berlin"
+
+4
+SELECT *
+FROM customers
+WHERE creditLimit < 30000
+OR creditLimit > 100000
+
+5
+SELECT *
+FROM customers
+WHERE country = "Spain"
+OR country = "Italy"
+AND creditLimit > 40000
+
+6
+SELECT *
+FROM customers
+WHERE customerName LIKE "A%"
+AND country = "USA"
+
+7
+SELECT *
+FROM customers
+WHERE city IN ("Paris","London");
+
+8
+SELECT *
+FROM customers
+WHERE salesRepEmployeeNumber IS NULL
+AND creditLimit > 20000;
+
+9
+SELECT *
+FROM employees
+WHERE jobTitle = "Sales Rep"
+AND officeCode = 1
+
+10
+SELECT *
+FROM employees
+WHERE officeCode IN (2,3)
+
+11
+SELECT *
+FROM employees
+WHERE firstName LIKE "L%"
+OR latName LIKE "L%"
+
+12
+SELECT *
+FROM products
+WHERE productLine = "Classic Cars"
+AND buyPrice > 50;
+
+13
+SELECT *
+FROM products
+WHERE productLine IN ("Motorcycles","Planes")
+
+14
+SELECT *
+FROM products
+WHERE quantityInStock > 5000
+AND buyPrice < 40
+
+15
+SELECT *
+FROM products
+WHERE productScale IN ("1:18","1:24")
+
+16
+SELECT *
+FROM products
+WHERE productLine = "Classic Cars"
+OR productLine = "Vintage Cars"
+AND quantityInStock < 2000
+
+17
+SELECT *
+FROM orders
+WHERE status = "Shipped"
+AND orderNumber > 10300
+
+18
+SELECT *
+FROM orders
+WHERE status = "Cancelled"
+OR status = "On Hold";
+
+19
+SELECT *
+FROM payments
+WHERE amount > 50000
+AND (customerNumber = 103
+     OR customerNumber = 112);
+
+20
+SELECT *
+FROM orderdetails
+WHERE quantityOrdered > 40
+AND priceEach > 100
