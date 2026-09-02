@@ -1,0 +1,149 @@
+1
+SELECT customerName, COUNT (orderNumber)
+FROM customers
+JOIN orders
+ON customers.customerNumber orders.customerNumber
+
+2
+SELECT customerName, AVG(amount)
+FROM customers
+JOIN payments
+ON customers.customerNumber = payments.customerNumber
+GROUP BY customerName
+
+3
+SELECT c.customerName, AVG(amount)
+FROM customers as c
+JOIN payments as p
+ON c.customerNumber = p.customerNumber
+GROUP BY (customerName)
+
+4
+SELECT c.customerName, MAX(amount)
+FROM customers as c
+JOIN payments as p
+ON c.customerNumber = p.customerNumber
+GROUP BY(customerName);
+
+5
+SELECT e.firstName,e.lastName, COUNT(customerNumber)
+FROM employees as e
+JOIN customers as c
+ON e.employeeNumber = c.salesRepEmployeeNumber
+GROUP BY firstName, lastName;
+
+6
+SELECT offices.city, COUNT(*)
+FROM offices
+JOIN employees
+ON offices.officeCode = employees.officeCode
+GROUP BY offices.city
+
+7
+SELECT orders.status, SUM(orderdetails.quantityOrdered)
+FROM orders
+JOIN orderdetails
+ON orders.orderNumber = orderdetails.orderNumber
+GROUP BY orders.status;
+
+8
+SELECT orders.orderNumber, orderdetails.quantityOrdered
+FROM orders
+JOIN orderdetails
+ON orders.orderNumber = orderdetails.orderNumber
+GROUP BY orderNumber;
+
+9
+SELECT productName, orderdetails.quantityOrdered
+FROM products
+JOIN orderdetails 
+ON products.orderNumber = orderdetails.orderNumber
+GROUP BY productName
+
+10
+SELECT productName, AVG(priceEach)
+FROM products
+JOIN orderdetails
+ON products.productCode = orderdetails.productCode
+GROUP BY productName
+
+11
+SELECT products.productLine, COUNT(productCode)
+FROM products
+JOIN productlines
+ON products.productLine = productlines.productLine
+GROUP BY productLine
+
+12
+SELECT products.productLine, AVG(buyPrice) 
+FROM products
+JOIN productlines
+ON products.productLine = productlines.productLine
+GROUP BY productLine
+
+13
+SELECT products.productLine, MAX(MSRP)
+FROM products
+JOIN productlines
+ON products.productLine = productlines.productLine
+GROUP BY productLine
+
+14
+SELECT customerName, COUNT(*)
+FROM customers
+JOIN orders
+ON orders.customerNumber = customers.customerNumber
+WHERE orders.status = "Shipped"
+GROUP BY customerName
+
+15
+SELECT customerName, SUM(amount)
+FROM customers
+JOIN payments
+ON customers.customerNumber = payments.customerNumber
+WHERE amount > 10000
+GROUP BY customerName;
+
+16
+SELECT employees.firstName, COUNT(*)
+FROM employees
+JOIN customers
+ON customers.salesRepEmployeeNumber = employees.employeeNumber
+WHERE customers.country = "USA"
+OR customers.country = "Canada"
+GROUP BY employeeNumber
+
+17
+SELECT offices.city, COUNT(employeeNumber)
+FROM offices
+JOIN employees
+ON offices.officeCode = employees.officeCode
+WHERE jobTitle = "Sales Rep"
+GROUP BY offices.city;
+
+18
+SELECT productlines.productLine, SUM(quantityOrdered)
+FROM products
+JOIN productlines
+ON products.productLine = productlines.productLine
+JOIN orderdetails
+ON products.productCode = orderdetails.productCode
+GROUP BY productlines.productLine;
+
+19
+SELECT customers.customerName, SUM(orderdetails.quantityOrdered)
+FROM orders
+JOIN customers
+ON orders.customerNumber = customers.customerNumber
+JOIN orderdetails
+ON orders.orderNumber = orderdetails.orderNumber
+GROUP BY customers.customerName;
+
+20
+SELECT customerName, SUM(orderdetails.quantityOrdered * priceEach)
+FROM orders
+JOIN customers
+ON orders.customerNumber = customers.customerNumber
+JOIN orderdetails
+ON orders.orderNumber = orderdetails.orderNumber
+GROUP BY customerName;
